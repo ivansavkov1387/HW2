@@ -23,32 +23,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        redLabel.text = String(lroundf(redSlider.value))
-        greenLabel.text = String(lroundf(greenSlider.value))
-        blueLabel.text = String(lroundf(blueSlider.value))
         
+        mainView.layer.cornerRadius = 10
         
-        
+        redLabel.text = String(lroundf(redSlider.value * 100))
+        greenLabel.text = String(lroundf(greenSlider.value * 100))
+        blueLabel.text = String(lroundf(blueSlider.value * 100))
     }
     
     @IBAction func redSliderTouch() {
-        let redRoundValue = lroundf(redSlider.value)
-        redLabel.text = String(redRoundValue)
-        mainView.backgroundColor = UIColor.init(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        redLabel.text = String(lroundf(redSlider.value * 100))
+        touchSlider()
     }
     
     @IBAction func greenSliderTouch() {
-        let greenRoundValue = lroundf(greenSlider.value)
-        greenLabel.text = String(greenRoundValue)
-        mainView.backgroundColor = UIColor.init(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        greenLabel.text = String(lroundf(greenSlider.value * 100))
+        touchSlider()
 
     }
     
     @IBAction func blueSliderTouch() {
-        let blueRoundValue = lroundf(blueSlider.value)
-        blueLabel.text = String(blueRoundValue)
-        mainView.backgroundColor = UIColor.init(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        blueLabel.text = String(lroundf(blueSlider.value * 100))
+        touchSlider()
+    }
+    
+    private func touchSlider() {
+        mainView.backgroundColor = UIColor.init(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: CGFloat(1))
 
     }
     
